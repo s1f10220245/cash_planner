@@ -1,0 +1,88 @@
+/* expense_list.css */
+
+/* テーブル全体のスタイル */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 14px;
+    background-color: #fff; /* 白背景で見やすく */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* テーブルに影を追加 */
+}
+
+/* テーブルの境界線 */
+table, th, td {
+    border: 1px solid #ddd; /* 柔らかいグレーの境界線 */
+}
+
+/* セルの内側余白と文字揃え */
+th, td {
+    padding: 12px 15px; 
+    text-align: left;
+}
+
+/* 偶数行の背景色 */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* テーブルヘッダーのスタイル */
+th {
+    background-color: #007bff;  /* 青色の背景 */
+    color: white;               /* テキストは白 */
+    font-weight: bold;
+    font-size: 16px; /* ヘッダーフォントを少し大きく */
+    text-align: left;
+}
+
+/* テーブルのホバー効果 */
+tr:hover {
+    background-color: #e0e0e0; /* 行にホバー時の効果 */
+}
+
+/* ボタンの全体スタイル */
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* 小さな画面で折り返し */
+    gap: 15px; /* ボタン間のスペースを広く */
+    justify-content: center; /* ボタンを中央揃え */
+    margin: 20px 0;
+}
+
+/* ボタンとしてのリンクのスタイル */
+.btn {
+    display: inline-block;
+    padding: 10px 24px; /* ボタンを大きめに */
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50; /* 緑色の背景 */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer; /* ホバー時にカーソルを変更 */
+}
+
+/* ホバー時のスタイル */
+.btn:hover {
+    background-color: #45a049;
+    transform: scale(1.05); /* 少し拡大する */
+}
+
+/* クリック時のスタイル */
+.btn:active {
+    background-color: #3e8e41;
+    transform: scale(0.95); /* 押し込まれた感 */
+}
+
+/* メディアクエリでレスポンシブ対応 */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%; /* 小さな画面ではボタンを横幅いっぱいに */
+        text-align: center;
+    }
+
+    .button-container {
+        flex-direction: column; /* ボタンを縦並びに */
+    }
+}
