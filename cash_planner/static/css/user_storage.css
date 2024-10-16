@@ -1,0 +1,65 @@
+/* user_storage.html 専用のスタイル */
+
+/* 下部のコンテンツエリア */
+.container {
+    margin-top: 0px;  /* 上部の固定ナビゲーションバーを避けるための余白 */
+    padding: 20px;
+    max-width: 800px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* タイトルスタイル */
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 情報表示のスタイル */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* ボタンのスタイル */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.btn:active {
+    background-color: #004080;
+    transform: scale(0.98);
+}
+
+/* hr タグのスタイルをカスタマイズ */
+hr {
+    border: none;               /* デフォルトの罫線を消す */
+    border-top: 1px solid #ccc;  /* 上に1pxの灰色の線を追加 */
+    margin: 20px 0;             /* 上下に余白を追加 */
+}
+
+/* または、各セクションの区切りにボーダーを使用 */
+.container p {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0; /* 下に薄い線を追加 */
+    margin-bottom: 20px;              /* 線と次の要素の間に余白を追加 */
+}

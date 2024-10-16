@@ -1,0 +1,62 @@
+/* ヘッダーの固定スタイル */
+.navbar-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #004c99;  /* ヘッダーの背景色 */
+    z-index: 1000;  /* 他の要素の上に表示するためにz-indexを設定 */
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* 少し影をつける */
+}
+
+.navbar-top a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.navbar-top a:hover {
+    background-color: #003366; /* ホバー時の背景色をさらに濃く */
+}
+
+.navbar {
+    margin-top: 60px;  /* 固定されたnavbar-topの高さ分だけ余白を設ける */
+    background-color: #0066cc;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+}
+
+/* 固定されたナビゲーションリンク */
+.navbar a, .navbar-top a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+}
+
+/* 全体のスタイル */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar a:hover, .navbar-top a:hover {
+    background-color: #0056b3;
+    color: white;
+}
