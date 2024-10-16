@@ -15,8 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from cash_planner import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('cash_planner/', include('cash_planner.urls')),  # cash_plannerのURL設定
+    path('', views.index, name='home'),  # 空のパスをindexビューに関連付け
 ]
