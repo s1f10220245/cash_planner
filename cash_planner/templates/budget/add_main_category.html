@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Main Category</title>
+</head>
+<body>
+    <h1>メインカテゴリを追加</h1>
+    <form id="MainCategoryForm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" onclick="submitForm()">送信</button>
+        <button type="button" onclick="window.close()">閉じる</button>
+    </form>
+
+    <script>
+        function submitForm() {
+            const form = document.getElementById('MainCategoryForm');
+            const formData = new FormData(form);
+    
+            fetch('{% url "add_main_category" %}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.opener.location.reload();
+                    window.close();
+                } else {
+                    alert('データの送信に失敗しました: ' + JSON.stringify(data.errors));
+                }
+            });
+        }
+    </script>
+</body>
+</html>

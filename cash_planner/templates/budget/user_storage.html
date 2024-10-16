@@ -1,0 +1,29 @@
+{% extends 'budget/base.html' %}
+
+{% load static %} 
+
+{% block title %}ユーザー情報確認{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>ユーザー情報確認</h1>
+        <p><strong>ユーザー名:</strong> {{ user_info.user.username }}</p>  <!-- ユーザー名の表示 -->
+        <p><strong>MBTIタイプ:</strong> {{ user_info.mbti }}</p>
+        <p><strong>職業:</strong> {{ user_info.occupation }}</p>
+        <p><strong>年収:</strong> {{ user_info.income|floatformat:0 }}</p>
+        <p><strong>主な支出項目:</strong> {{ user_info.expenses }}</p>
+        <p><strong>支払い方法:</strong> {{ user_info.payment }}</p>
+        <p><strong>貯金や投資に回している金額:</strong> {{ user_info.savings|floatformat:0  }}</p>
+        <p><strong>目標貯金額と目的:</strong> {{ user_info.goal }}</p>
+        <p><strong>性格タイプ:</strong> {{ user_info.personality }}</p>
+        <p><strong>節約意識:</strong> {{ user_info.awareness }}</p>
+    </div>
+
+    <!-- 編集ボタン -->
+    <a href="{% url 'user_info' %}" class="btn">編集する</a>
+{% endblock %}
+
+{% block extra_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user_storage.css' %}">
+{% endblock %}

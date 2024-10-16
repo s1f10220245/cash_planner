@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% extends 'budget/base.html' %}
+
+{% block title %}収入一覧{% endblock %}
+
+{% block content %}    
+    <p>ようこそ、{{ user.username }}さん</p>
+
+    <h2>今月の合計</h2>
+    <div class="totals">
+        <p><strong>合計支出:</strong> ￥{{ total_expense }} </p>
+        <p><strong>合計収入:</strong> ￥{{ total_income }} </p>
+    </div>
+    <div>
+         <!-- 支出データのCSVダウンロードリンク -->
+         <a href="{% url 'export_expense_csv' %}" class="btn btn-primary">支出データをCSVとしてダウンロード</a>
+
+         <!-- 収入データのCSVダウンロードリンク -->
+         <a href="{% url 'export_income_csv' %}" class="btn btn-primary">収入データをCSVとしてダウンロード</a>
+
+         <!-- スマートセーブデータのCSVダウンロードリンク -->
+         <a href="{% url 'export_smart_save_csv' %}" class="btn btn-primary">スマートセーブデータをCSVとしてダウンロード</a>
+    </div>
+    
+    <!-- ログアウトリンク -->
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">ログアウト</button>
+    </form>
+{% endblock %}
