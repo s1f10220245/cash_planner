@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>取引一覧</h1>
+  <a href="{% url 'add_transaction' %}">新規取引追加</a>
+  <ul>
+    {% for transaction in transactions %}
+      <li>
+        {{ transaction.date }} - 
+        {{ transaction.get_type_display }} - 
+        {{ transaction.amount }} - 
+        {{ transaction.description }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
