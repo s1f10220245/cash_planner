@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>収入を追加</title>
+    </head>
+    <body>
+        <h1>収入を追加</h1>
+        <form id="incomeForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="button" onclick="submitForm()">送信</button>
+            <a href="{% url 'income_list' %}">
+                <button type="button">閉じる</button>
+            </a>
+        </form>
+
+        <script>
+            function submitForm() {
+                const form = document.getElementById('incomeForm');
+                const formData = new FormData(form);
+        
+                fetch('{% url "add_income" %}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        window.opener.location.reload();
+                        window.close();
+                    } else {
+                        alert('データの送信に失敗しました: ' + JSON.stringify(data.errors));
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sub Categories</title>
+</head>
+<body>
+    <h1>サブカテゴリ一覧</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>メインカテゴリ</th>
+                <th>サブカテゴリ</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+            <tr>
+                <td>{{ category.main_category }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a href="{% url 'edit_sub_category' category.pk %}">編集</a>
+                    <a href="{% url 'delete_sub_category' category.pk %}">削除</a>
+                </td>
+            {% empty %}
+                <td>データがありません。</td>
+            {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    
+    <button onclick="openPopup()">サブカテゴリを追加</button>
+    <a href="{% url 'main_category_list' %}">メインカテゴリ一覧</a>
+    <br>
+    <a href="{% url 'expense_list' %}">支出一覧</a>
+    <a href="{% url 'patience_list' %}">スマートセーブ履歴</a>
+
+    <script>
+        function openPopup() {
+            window.open("{% url 'add_sub_category' %}", 'ポップアップ', 'width=600,height=400');
+        }
+    </script>
+</body>
+</html>
