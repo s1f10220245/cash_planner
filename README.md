@@ -4,6 +4,9 @@
 ## マイグレーション
 `python manage.py makemigrations`</br>
 `python manage.py migrate`</br>
+**⚠マイグレーションエラーの場合**</br>
+`python manage.py makemigrations cash_planner`</br>
+`python manage.py migrate`</br>
 
 ## 環境構築
 `python -m venv venv` 仮想環境を作成</br>
